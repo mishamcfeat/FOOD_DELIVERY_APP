@@ -6,6 +6,7 @@ const CartSidebar = ({ isCartVisible, toggleCart }) => {
     const { basket, updateItemQuantity, removeItemFromBasket, getTotalCost, refetchBasketItems } = useContext(BasketContext);
     const [totalCost, setTotalCost] = useState(0);
     const sidebarRef = useRef();
+    
 
     useEffect(() => {
         let isMounted = true;
@@ -40,7 +41,7 @@ const CartSidebar = ({ isCartVisible, toggleCart }) => {
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (isCartVisible && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-                toggleCart(); // Use toggleCart to close the sidebar
+                toggleCart();
             }
         };
 
